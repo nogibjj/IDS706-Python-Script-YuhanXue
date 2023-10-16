@@ -33,12 +33,12 @@ python3 main.py load
 
 To insert a record, issue the following command (9 values in parentheses, comma-separated):
 ```
-python3 main.py insert "(...)"
+python3 main.py insert -a "(...)"
 ```
 
 To delete a record, issue the following command (without brace):
 ```
-python3 main.py delete [id]
+python3 main.py delete -a [id]
 ```
 
 
