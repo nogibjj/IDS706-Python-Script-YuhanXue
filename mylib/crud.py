@@ -6,6 +6,8 @@ cur = conn.cursor()
 
 
 def load(csvfile='diabetes.csv'):
+    cur.execute('DROP TABLE IF EXISTS diabetes')
+    conn.commit()
     cur.execute('''
         CREATE TABLE IF NOT EXISTS diabetes (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -29,6 +31,8 @@ def load(csvfile='diabetes.csv'):
                 INSERT INTO diabetes (pregnancies,glucose,blood_pressure,skin_thickness,insulin,bmi,diabetes_pedigree_function,age,outcome) VALUES (?,?,?,?,?,?,?,?,?)
             ''', (row['Pregnancies'],row['Glucose'],row['BloodPressure'],row['SkinThickness'],row['Insulin'],row['BMI'],row['DiabetesPedigreeFunction'],row['Age'],row['Outcome']))
         conn.commit()
+
+    print("succesfully loaded the database!")
 
 
 def insert(pregnancies,glucose,blood_pressure,skin_thickness,insulin,bmi,diabetes_pedigree_function,age,outcome):
